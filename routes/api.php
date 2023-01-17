@@ -12,6 +12,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('product')->group(function () {
     Route::get('/get/{id}',[ProductsController::class, 'get']);
     Route::get('/getrange/{start}/{length}',[ProductsController::class, 'getRange']);
+    Route::get('/count',[ProductsController::class,'countData']);
     Route::post('/add',[ProductsController::class, 'add']);
     Route::patch('/update/{id}',[ProductsController::class, 'update']);
     Route::delete('/destroy/{id}',[ProductsController::class, 'destroy']);

@@ -76,8 +76,13 @@ class ProductsController extends Controller
     {
         $product = Products::where('id',$id);
         if($product->get()->isEmpty()){
-            return sendResponse('error','cannot find selected record');
+            return $this->sendResponse('error','cannot find selected record');
         }
         $product->delete();
+    }
+
+    public function countData(){
+        $count = Products::count();
+        return $this->sendResponse('success',$count);
     }
 }
